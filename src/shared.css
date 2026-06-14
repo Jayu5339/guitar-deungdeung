@@ -1,0 +1,698 @@
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 3rem 2.5rem 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.2rem;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.back-link:hover {
+  color: #e8c96a;
+}
+
+.page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: 2px;
+  color: #f0ece3;
+  line-height: 1;
+}
+
+.page-title em {
+  color: #e8c96a;
+  font-style: normal;
+}
+
+.page-subtitle {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.8;
+  max-width: 480px;
+  margin-top: 0.8rem;
+}
+
+/* ── SECTION TOGGLE (코드 카피 / 단음 카피) ── */
+.section-toggle {
+  display: flex;
+  gap: 1px;
+  background: #191919;
+  margin: 0 2.5rem 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1;
+  background: #111;
+  border: none;
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #161616;
+  color: #aaa;
+}
+
+.toggle-btn.active {
+  background: #1a1a1a;
+  color: #e8c96a;
+}
+
+/* ── CHORD FAMILY TABS ── */
+.family-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 2.5rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.family-tab {
+  background: transparent;
+  border: 0.5px solid #2a2a2a;
+  color: #555;
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.2s;
+}
+
+.family-tab:hover {
+  border-color: #444;
+  color: #aaa;
+}
+
+.family-tab.active {
+  background: #e8c96a1a;
+  border-color: #e8c96a;
+  color: #e8c96a;
+}
+
+/* ── CHORD FORM CARDS ── */
+.chord-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #191919;
+  margin: 0 2.5rem 2.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chord-card {
+  background: #111;
+  padding: 1.5rem 1.5rem 1.8rem;
+
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.chord-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.chord-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f0ece3;
+}
+
+.chord-card-alt {
+  font-size: 11px;
+  color: #3a3a3a;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* fretboard / TAB diagram */
+.tab-diagram {
+  background: #0a0a0a;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  font-family: 'Bebas Neue', monospace;
+}
+
+.tab-row {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  position: relative;
+}
+
+.tab-row::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #2a2a2a;
+}
+
+.tab-string-name {
+  width: 24px;
+  font-size: 13px;
+  color: #4a4a4a;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.tab-fret {
+  position: relative;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  background: #0a0a0a;
+}
+
+.tab-fret.has-note {
+  background: #e8c96a;
+  color: #2a1f00;
+}
+
+.tab-fret.has-note.root {
+  background: #f0ece3;
+  color: #111;
+}
+
+.tab-fret.muted {
+  color: #2e2e2e;
+  font-size: 14px;
+}
+
+.tab-degree {
+  margin-left: 8px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.tab-degree.deg-root {
+  background: #f0ece322;
+  color: #f0ece3;
+}
+
+.tab-degree.deg-3rd {
+  background: #e8c96a22;
+  color: #e8c96a;
+}
+
+.tab-degree.deg-5th {
+  background: #7aa6c222;
+  color: #7aa6c2;
+}
+
+.tab-degree.deg-7th {
+  background: #c98a6a22;
+  color: #c98a6a;
+}
+
+.chord-card-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.preview-btn {
+  background: transparent;
+  border: 0.5px solid #2a2a2a;
+  color: #888;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.preview-btn:hover {
+  border-color: #e8c96a;
+  color: #e8c96a;
+}
+
+.preview-btn.playing {
+  background: #e8c96a;
+  border-color: #e8c96a;
+  color: #2a1f00;
+}
+
+.degree-legend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 0 2.5rem 1.5rem;
+  font-size: 11px;
+  color: #555;
+}
+
+.degree-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.degree-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.chord-card-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* ── STEP CARDS (단계별 설명) ── */
+.steps-list {
+  margin: 0 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #191919;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.step-card {
+  background: #111;
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.step-card:hover {
+  background: #161616;
+}
+
+.step-card.done {
+  background: #0d120c;
+}
+
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: #2a2a2a;
+  line-height: 1;
+  min-width: 44px;
+  transition: color 0.2s;
+}
+
+.step-card.done .step-num {
+  color: #4a3f1a;
+}
+
+.step-body {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #d0ccc4;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.step-card:hover .step-title,
+.step-card.done .step-title {
+  color: #f0ece3;
+}
+
+.step-desc {
+  font-size: 12.5px;
+  color: #555;
+  line-height: 1.85;
+}
+
+.step-tag {
+  display: inline-block;
+  font-size: 10px;
+  color: #e8c96a;
+  border: 0.5px solid #e8c96a44;
+  border-radius: 2px;
+  padding: 1px 6px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.step-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 0.5px solid #2a2a2a;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: transparent;
+  transition: all 0.2s;
+  align-self: center;
+}
+
+.step-card.done .step-check {
+  background: #e8c96a;
+  border-color: #e8c96a;
+  color: #2a1f00;
+}
+
+/* ── BRANCH CARD (오디오 인터페이스 여부) ── */
+.branch-section {
+  margin: 0 2.5rem 2.5rem;
+}
+
+.branch-question {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.branch-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #191919;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.branch-option {
+  background: #111;
+  border: none;
+  padding: 1.4rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.branch-option:hover {
+  background: #161616;
+}
+
+.branch-option.selected {
+  background: #1a1a1a;
+  box-shadow: inset 0 0 0 1px #e8c96a55;
+}
+
+.branch-option-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d0ccc4;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.branch-option.selected .branch-option-title {
+  color: #e8c96a;
+}
+
+.branch-option-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.branch-detail {
+  margin-top: 1px;
+  background: #0d0d0d;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 0 0 4px 4px;
+  padding: 1.2rem 1.5rem;
+  font-size: 12.5px;
+  color: #666;
+  line-height: 1.9;
+
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.branch-detail strong {
+  color: #c9c4ba;
+  font-weight: 700;
+}
+
+/* ── WAVEFORM ILLUSTRATION ── */
+.waveform-box {
+  margin: 0 2.5rem 2.5rem;
+  background: #111;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 4px;
+  padding: 1.5rem 1.8rem;
+}
+
+.waveform-label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.waveform-good span,
+.waveform-bad span {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.waveform-good span { color: #6fae6f; }
+.waveform-bad span { color: #c97a6a; }
+
+.waveform-img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  border: 0.5px solid #1e1e1e;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-section {
+  margin: 0 2.5rem 2.5rem;
+  background: #111;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 4px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  min-width: 90px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: #1e1e1e;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #e8c96a;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── SUBMIT / LOG ── */
+.submit-section {
+  margin: 0 2.5rem 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background: #e8c96a;
+  color: #0e0e0e;
+  border: none;
+  padding: 12px 28px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+  background: #f5d980;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+.submit-btn:disabled {
+  background: #2a2a2a;
+  color: #555;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitted-banner {
+  margin: 0 2.5rem 2.5rem;
+  background: #0d120c;
+  border: 0.5px solid #1e2a1a;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #8fbf8f;
+}
+
+.submitted-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: transparent;
+  border: 0.5px solid #2a2a2a;
+  color: #888;
+  padding: 8px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.edit-btn:hover {
+  color: #f0ece3;
+  border-color: #555;
+}
+
+.log-section {
+  margin: 0 2.5rem 2.5rem;
+  background: #111;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 4px;
+  padding: 0.5rem 1.5rem;
+}
+
+.log-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+  border-bottom: 0.5px solid #1a1a1a;
+  font-size: 13px;
+  gap: 12px;
+}
+
+.log-item:last-child {
+  border-bottom: none;
+}
+
+.log-date {
+  color: #888;
+  font-weight: 500;
+  min-width: 90px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.log-desc {
+  color: #999;
+  flex: 1;
+  text-align: right;
+}
+
+.log-delete {
+  background: none;
+  border: none;
+  color: #3a3a3a;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.log-delete:hover {
+  color: #c97a6a;
+}
+
+.log-empty {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: #3a3a3a;
+}
+
+@media (max-width: 600px) {
+  .chord-grid { grid-template-columns: 1fr; }
+  .branch-options { grid-template-columns: 1fr; }
+  .page-title { font-size: 36px; }
+}
