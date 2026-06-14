@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PageHeader from '../PageHeader'
 import goodWaveform from '../assets/good.png'
 import badWaveform from '../assets/bad.png'
@@ -72,34 +72,41 @@ const summarizeRanges = (checked) => {
 
 const Rendition = () => {
   const [hasInterface, setHasInterface] = useState(null) // null | 'yes' | 'no'
-  const [checked, setChecked] = useState({})
-  const [log, setLog] = useState([])
-  const [submittedToday, setSubmittedToday] = useState(false)
-
-  useEffect(() => {
+  const [checked, setChecked] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) {
       try {
         const data = JSON.parse(saved)
-        if (data.clean_play) setChecked(data.clean_play)
+        if (data.clean_play) return data.clean_play
       } catch {
         // ignore parse error
       }
     }
-
+    return {}
+  })
+  const [log, setLog] = useState(() => {
+    const savedLog = localStorage.getItem(LOG_KEY)
+    if (savedLog) {
+      try {
+        return JSON.parse(savedLog)
+      } catch {
+        // ignore parse error
+      }
+    }
+    return []
+  })
+  const [submittedToday, setSubmittedToday] = useState(() => {
     const savedLog = localStorage.getItem(LOG_KEY)
     if (savedLog) {
       try {
         const parsed = JSON.parse(savedLog)
-        setLog(parsed)
-        if (parsed.length > 0 && parsed[0].dateKey === todayKey()) {
-          setSubmittedToday(true)
-        }
+        return parsed.length > 0 && parsed[0].dateKey === todayKey()
       } catch {
         // ignore parse error
       }
     }
-  }, [])
+    return false
+  })
 
   const toggleStep = (i) => {
     if (submittedToday) return
