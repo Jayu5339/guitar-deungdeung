@@ -1,0 +1,215 @@
+/* ── STRING BADGES ── */
+.string-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 2.5rem 1.5rem;
+}
+
+.string-badge {
+  background: transparent;
+  border: 0.5px solid #2a2a2a;
+  color: #888;
+  font-size: 11px;
+  font-family: 'Bebas Neue', monospace;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+/* ── TECHNIQUE GRID ── */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1px;
+  background: #191919;
+  margin: 0 2.5rem 2.5rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tech-btn {
+  background: #111;
+  border: none;
+  padding: 1rem 1.1rem 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: background 0.2s;
+}
+
+.tech-btn:hover {
+  background: #161616;
+}
+
+.tech-btn.active {
+  background: #1a1a1a;
+}
+
+.tech-symbol {
+  font-family: 'Bebas Neue', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tech-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #d0ccc4;
+  line-height: 1.4;
+}
+
+.tech-short {
+  font-size: 11px;
+  color: #555;
+}
+
+/* ── TECHNIQUE PANEL ── */
+.tech-panel {
+  background: #111;
+  border: 0.5px solid #1e1e1e;
+  border-radius: 4px;
+  margin: 0 2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+.tech-panel-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 0.5px solid #1e1e1e;
+}
+
+.tech-panel-symbol {
+  font-family: 'Bebas Neue', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  min-width: 60px;
+}
+
+.tech-panel-info {
+  flex: 1;
+}
+
+.tech-panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0ece3;
+}
+
+.tech-panel-short {
+  font-size: 12px;
+  color: #555;
+  margin-top: 2px;
+}
+
+.go-check-btn {
+  background: transparent;
+  border: 0.5px solid #2a2a2a;
+  color: #888;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.go-check-btn:hover {
+  color: #e8c96a;
+  border-color: #e8c96a;
+}
+
+/* ── CANVAS ── */
+.canvas-wrap {
+  background: #0a0a0a;
+  padding: 0.85rem 1rem;
+  border-bottom: 0.5px solid #1e1e1e;
+}
+
+.tab-canvas {
+  width: 100%;
+  height: 172px;
+  display: block;
+}
+
+/* ── PLAYBACK ── */
+.playback-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.5rem;
+  border-bottom: 0.5px solid #1e1e1e;
+}
+
+.play-btn {
+  background: transparent;
+  color: #d0ccc4;
+  border: 0.5px solid #2a2a2a;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.play-btn:hover {
+  border-color: #555;
+  color: #f0ece3;
+}
+
+/* 재생 중에는 프레임마다 갱신되므로 트랜지션을 짧게 */
+.playback-fill {
+  transition: width 0.05s linear;
+}
+
+/* ── EXPLANATION / TIP ── */
+.tech-explanation {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.85;
+  padding: 1rem 1.5rem 0.25rem;
+  margin: 0;
+}
+
+.tip-box {
+  margin: 1rem 1.5rem 1.5rem;
+  border-left: 2.5px solid;
+  border-radius: 0 4px 4px 0;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tip-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Bebas Neue', monospace;
+}
+
+.tip-text {
+  font-size: 12.5px;
+  color: #d0ccc4;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-panel-head { flex-wrap: wrap; }
+}
